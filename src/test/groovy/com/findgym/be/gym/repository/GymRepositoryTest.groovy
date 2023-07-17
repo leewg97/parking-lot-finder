@@ -1,12 +1,12 @@
 package com.findgym.be.gym.repository
 
+import com.findgym.be.AbstractIntegrationContainerBaseTest
 import com.findgym.be.gym.entity.Gym
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import spock.lang.Specification
 
 @SpringBootTest
-class GymRepositoryTest extends Specification {
+class GymRepositoryTest extends AbstractIntegrationContainerBaseTest {
 
     @Autowired
     private GymRepository gymRepository
