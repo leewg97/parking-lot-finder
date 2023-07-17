@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  find-gym-database:
+    container_name: find-gym-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: dldnjsrms/find-gym-database
+    environment:
+      - MARIADB_DATABASE=find-gym
+      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+    ports:
+      - "3306:3306"
