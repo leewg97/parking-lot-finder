@@ -13,5 +13,5 @@ public class KakaoApiResponseDto {
 
     private MetaDto metaDto;
 
-    private List<DocumentDto> documentDtoList;
+    private List<DocumentDto> documentList;
 }
