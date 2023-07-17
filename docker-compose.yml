@@ -14,3 +14,11 @@ services:
       - ./database/init:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
+  find-gym-redis:
+    container_name: find-gym-redis
+    build:
+      dockerfile: Dockerfile
+      context: ./redis
+    image: dldnjsrms/find-gym-redis
+    ports:
+      - "6379:6379"
