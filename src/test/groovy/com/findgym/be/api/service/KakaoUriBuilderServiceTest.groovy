@@ -2,6 +2,8 @@ package com.findgym.be.api.service
 
 import spock.lang.Specification
 
+import java.nio.charset.StandardCharsets
+
 class KakaoUriBuilderServiceTest extends Specification {
 
     private KakaoUriBuilderService kakaoUriBuilderService
