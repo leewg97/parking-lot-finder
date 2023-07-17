@@ -1,5 +1,6 @@
 package com.findgym.be.gym.entity;
 
+import com.findgym.be.gym.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Gym {
+public class Gym extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +26,8 @@ public class Gym {
     private String gymAddress;
     private double latitude;
     private double longitude;
+
+    public void changeGymAddress(String address) {
+        this.gymAddress = address;
+    }
 }
