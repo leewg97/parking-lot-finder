@@ -2,10 +2,13 @@ package com.gymfinder.be.direction.service;
 
 import com.gymfinder.be.api.dto.DocumentDto;
 import com.gymfinder.be.direction.entity.Direction;
+import com.gymfinder.be.direction.repository.DirectionRepository;
 import com.gymfinder.be.gym.service.GymSearchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,6 +25,7 @@ public class DirectionService {
     private static final double RADIUS_KM = 10.0; // 반경 10km
 
     private final GymSearchService gymSearchService;
+    private final DirectionRepository directionRepository;
 
     public List<Direction> buildDirectionList(DocumentDto dto) {
         if (Objects.isNull(dto)) return Collections.emptyList();
@@ -49,6 +53,12 @@ public class DirectionService {
                 .sorted(Comparator.comparing(Direction::getDistance))
                 .limit(MAX_SEARCH_COUNT)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public List<Direction> saveAll(List<Direction> directionList) {
+        if (CollectionUtils.isEmpty(directionList)) return Collections.emptyList();
+        return directionRepository.saveAll(directionList);
     }
 
     // HAVERSINE FORMULA
