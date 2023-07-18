@@ -49,6 +49,10 @@ dependencies {
     // 런타임에 클래스 기반 mock 만들기 위해서 필요
     testImplementation('net.bytebuddy:byte-buddy:1.9.3')
 
+    // mockWebServer
+    testImplementation('com.squareup.okhttp3:okhttp:4.10.0')
+    testImplementation('com.squareup.okhttp3:mockwebserver:4.10.0')
+
     // testcontainers
     testImplementation 'org.testcontainers:spock:1.17.1'
     testImplementation 'org.testcontainers:mariadb:1.17.1'
