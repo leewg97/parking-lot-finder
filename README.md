@@ -1,1 +1,1 @@
-# Find-Gym
+# Gym-Finder
