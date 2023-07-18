@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,10 +25,26 @@ public class DirectionService {
 
     private static final int MAX_SEARCH_COUNT = 5; // 최대 겁색 갯수
     private static final double RADIUS_KM = 10.0; // 반경 10km
+    private static final String DIRECTION_BASE_URL = "https://map.kakao.com/link/map/";
 
+    private final Base62Service base62Service;
     private final GymSearchService gymSearchService;
     private final DirectionRepository directionRepository;
     private final KakaoCategorySearchService kakaoCategorySearchService;
+
+    public String findDirectionUrlById(String encodedId) {
+        Long decodedId = base62Service.decodeDirectionId(encodedId);
+        Direction direction = directionRepository.findById(decodedId).orElse(null);
+
+        assert direction != null;
+        String params = String.join(",", direction.getTargetGymName(),
+                String.valueOf(direction.getTargetLatitude()), String.valueOf(direction.getTargetLongitude()));
+
+        // 시설 이름이 한글이기 때문에 인코딩
+        return UriComponentsBuilder.fromHttpUrl(DIRECTION_BASE_URL + params)
+                .toUriString();
+    }
+
 
     public List<Direction> buildDirectionList(DocumentDto dto) {
         if (Objects.isNull(dto)) return Collections.emptyList();
