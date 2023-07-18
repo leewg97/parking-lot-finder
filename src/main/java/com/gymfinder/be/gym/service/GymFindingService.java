@@ -36,7 +36,7 @@ public class GymFindingService {
         KakaoApiResponseDto kakaoApiResponseDto = kakaoAddressSearchService.requestAddressSearch(address);
 
         if (Objects.isNull(kakaoApiResponseDto) || CollectionUtils.isEmpty(kakaoApiResponseDto.getDocumentList())) {
-            log.error("[GymSearchService searchGymList fail] Input address : {}", address);
+            log.error("[GymFindingService searchGymList fail] Input address : {}", address);
             return Collections.emptyList();
         }
 
@@ -55,7 +55,7 @@ public class GymFindingService {
                 .gymName(direction.getTargetGymName())
                 .gymAddress(direction.getTargetAddress())
                 .directionUrl(baseUrl + base62Service.encodeDirectionId(direction.getId()))
-                .roadViewUrl(ROAD_VIEW_BASE_URL + direction.getTargetGymName() + "," + direction.getTargetLatitude())
+                .roadViewUrl(ROAD_VIEW_BASE_URL + direction.getTargetLatitude() + "," + direction.getTargetLongitude())
                 .distance(String.format("%.2f km", direction.getDistance()))
                 .build();
     }

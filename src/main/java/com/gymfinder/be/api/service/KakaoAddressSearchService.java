@@ -40,7 +40,6 @@ public class KakaoAddressSearchService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.set(HttpHeaders.AUTHORIZATION, "KakaoAK " + kakaoRestApiKey);
-
         HttpEntity httpEntity = new HttpEntity<>(headers);
 
         // kakao api 호출
