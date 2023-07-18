@@ -30,7 +30,8 @@ public class GymFindingService {
         }
 
         DocumentDto dto = kakaoApiResponseDto.getDocumentList().get(0);
-        List<Direction> directionList = directionService.buildDirectionList(dto);
+//        List<Direction> directionList = directionService.buildDirectionList(dto);
+        List<Direction> directionList = directionService.buildDirectionListByCategoryApi(dto);
         directionService.saveAll(directionList);
     }
 }
