@@ -1,6 +1,8 @@
 package com.gymfinder.be.direction.service
 
 import com.gymfinder.be.api.dto.DocumentDto
+import com.gymfinder.be.api.service.KakaoCategorySearchService
+import com.gymfinder.be.direction.repository.DirectionRepository
 import com.gymfinder.be.gym.dto.GymDto
 import com.gymfinder.be.gym.service.GymSearchService
 import spock.lang.Specification
@@ -8,7 +10,13 @@ import spock.lang.Specification
 class DirectionServiceTest extends Specification {
 
     private GymSearchService gymSearchService = Mock()
-    private DirectionService = new DirectionService(gymSearchService)
+    private DirectionRepository directionRepository = Mock()
+    private KakaoCategorySearchService kakaoCategorySearchService = Mock()
+    private Base62Service base62Service = Mock()
+
+    private DirectionService directionService = new DirectionService(
+            gymSearchService, directionRepository, kakaoCategorySearchService, base62Service)
+
     private List<GymDto> gymList
 
     def setup() {
@@ -46,7 +54,7 @@ class DirectionServiceTest extends Specification {
         when:
         gymSearchService.searchGymDtoList() >> gymList
 
-        def results = DirectionService.buildDirectionList(documentDto)
+        def results = directionService.buildDirectionList(documentDto)
 
         then:
         results.size() == 2
@@ -79,7 +87,7 @@ class DirectionServiceTest extends Specification {
         when:
         gymSearchService.searchGymDtoList() >> gymList
 
-        def results = DirectionService.buildDirectionList(documentDto)
+        def results = directionService.buildDirectionList(documentDto)
 
         then:
         results.size() == 2
