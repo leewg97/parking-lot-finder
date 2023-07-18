@@ -1,6 +1,6 @@
-package com.findgym.be.api.service;
+package com.gymfinder.be.api.service;
 
-import com.findgym.be.api.dto.KakaoApiResponseDto;
+import com.gymfinder.be.api.dto.KakaoApiResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

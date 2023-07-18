@@ -1,4 +1,4 @@
-package com.findgym.be.config;
+package com.gymfinder.be.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

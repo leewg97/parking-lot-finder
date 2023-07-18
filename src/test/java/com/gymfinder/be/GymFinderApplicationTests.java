@@ -1,10 +1,10 @@
-package com.findgym.be;
+package com.gymfinder.be;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FindGymApplicationTests {
+class GymFinderApplicationTests {
 
     @Test
     void contextLoads() {

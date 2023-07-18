@@ -1,4 +1,4 @@
-package com.findgym.be.api.dto;
+package com.gymfinder.be.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

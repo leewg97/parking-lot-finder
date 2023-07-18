@@ -1,7 +1,8 @@
-package com.findgym.be.gym.repository
+package com.gymfinder.be.gym.repository
 
-import com.findgym.be.AbstractIntegrationContainerBaseTest
-import com.findgym.be.gym.entity.Gym
+
+import com.gymfinder.be.gym.entity.Gym
+import com.gymfinder.be.AbstractIntegrationContainerBaseTest
 import org.springframework.beans.factory.annotation.Autowired
 
 import java.time.LocalDateTime

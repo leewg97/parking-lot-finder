@@ -1,6 +1,6 @@
-package com.findgym.be.api.service
+package com.gymfinder.be.api.service
 
-import com.findgym.be.AbstractIntegrationContainerBaseTest
+import com.gymfinder.be.AbstractIntegrationContainerBaseTest
 import org.springframework.beans.factory.annotation.Autowired
 
 class KakaoAddressSearchServiceTest extends AbstractIntegrationContainerBaseTest {

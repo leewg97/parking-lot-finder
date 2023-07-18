@@ -1,6 +1,6 @@
-package com.findgym.be.gym.repository;
+package com.gymfinder.be.gym.repository;
 
-import com.findgym.be.gym.entity.Gym;
+import com.gymfinder.be.gym.entity.Gym;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GymRepository extends JpaRepository<Gym, Long> {

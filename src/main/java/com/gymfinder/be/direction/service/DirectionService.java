@@ -1,8 +1,8 @@
-package com.findgym.be.direction.service;
+package com.gymfinder.be.direction.service;
 
-import com.findgym.be.api.dto.DocumentDto;
-import com.findgym.be.direction.entity.Direction;
-import com.findgym.be.gym.service.GymSearchService;
+import com.gymfinder.be.api.dto.DocumentDto;
+import com.gymfinder.be.direction.entity.Direction;
+import com.gymfinder.be.gym.service.GymSearchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

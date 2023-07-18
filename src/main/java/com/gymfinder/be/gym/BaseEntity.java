@@ -1,4 +1,4 @@
-package com.findgym.be.gym;
+package com.gymfinder.be.gym;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

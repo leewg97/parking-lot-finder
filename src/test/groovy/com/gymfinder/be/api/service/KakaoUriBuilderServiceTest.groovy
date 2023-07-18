@@ -1,4 +1,4 @@
-package com.findgym.be.api.service
+package com.gymfinder.be.api.service
 
 import spock.lang.Specification
 

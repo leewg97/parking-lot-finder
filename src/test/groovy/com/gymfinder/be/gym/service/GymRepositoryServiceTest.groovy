@@ -1,7 +1,8 @@
-package com.findgym.be.gym.service
+package com.gymfinder.be.gym.service
 
-import com.findgym.be.AbstractIntegrationContainerBaseTest
-import com.findgym.be.gym.repository.GymRepository
+
+import com.gymfinder.be.gym.repository.GymRepository
+import com.gymfinder.be.AbstractIntegrationContainerBaseTest
 import org.springframework.beans.factory.annotation.Autowired
 
 class GymRepositoryServiceTest extends AbstractIntegrationContainerBaseTest {

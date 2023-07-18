@@ -1,4 +1,4 @@
-package com.findgym.be.gym.dto;
+package com.gymfinder.be.gym.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

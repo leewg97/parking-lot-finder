@@ -1,4 +1,4 @@
-package com.findgym.be
+package com.gymfinder.be
 
 import org.springframework.boot.test.context.SpringBootTest
 import org.testcontainers.containers.GenericContainer

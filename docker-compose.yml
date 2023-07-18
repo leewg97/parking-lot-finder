@@ -1,24 +1,24 @@
 version: "3.8"
 services:
-  find-gym-database:
-    container_name: find-gym-database
+  gym-finder-database:
+    container_name: gym-finder-database
     build:
       dockerfile: Dockerfile
       context: ./database
-    image: dldnjsrms/find-gym-database
+    image: dldnjsrms/gym-finder-database
     environment:
-      - MARIADB_DATABASE=find-gym
+      - MARIADB_DATABASE=gym-finder
       - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
     volumes:
       - ./database/config:/etc/mysql/conf.d
       - ./database/init:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
-  find-gym-redis:
-    container_name: find-gym-redis
+  gym-finder-redis:
+    container_name: gym-finder-redis
     build:
       dockerfile: Dockerfile
       context: ./redis
-    image: dldnjsrms/find-gym-redis
+    image: dldnjsrms/gym-finder-redis
     ports:
       - "6379:6379"

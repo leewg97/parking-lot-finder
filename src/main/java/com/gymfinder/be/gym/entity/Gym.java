@@ -1,6 +1,6 @@
-package com.findgym.be.gym.entity;
+package com.gymfinder.be.gym.entity;
 
-import com.findgym.be.gym.BaseEntity;
+import com.gymfinder.be.gym.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

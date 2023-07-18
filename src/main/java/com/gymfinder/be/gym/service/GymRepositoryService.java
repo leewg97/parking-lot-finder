@@ -1,7 +1,7 @@
-package com.findgym.be.gym.service;
+package com.gymfinder.be.gym.service;
 
-import com.findgym.be.gym.entity.Gym;
-import com.findgym.be.gym.repository.GymRepository;
+import com.gymfinder.be.gym.entity.Gym;
+import com.gymfinder.be.gym.repository.GymRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
