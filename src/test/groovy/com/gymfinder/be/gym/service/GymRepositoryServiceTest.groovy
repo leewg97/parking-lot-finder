@@ -1,14 +1,14 @@
 package com.gymfinder.be.gym.service
 
-
-import com.gymfinder.be.gym.repository.GymRepository
 import com.gymfinder.be.AbstractIntegrationContainerBaseTest
+import com.gymfinder.be.gym.entity.Gym
+import com.gymfinder.be.gym.repository.GymRepository
 import org.springframework.beans.factory.annotation.Autowired
 
 class GymRepositoryServiceTest extends AbstractIntegrationContainerBaseTest {
 
     @Autowired
-    private GymRepositoryService gymRepositoryService;;
+    private GymRepositoryService gymRepositoryService; ;
 
     @Autowired
     private GymRepository gymRepository;
@@ -51,7 +51,7 @@ class GymRepositoryServiceTest extends AbstractIntegrationContainerBaseTest {
 
         when:
         def entity = gymRepository.save(gym)
-        gymRepositoryService.updateAddressWithoutTransactional(entity.getId(), modifiedAddress)
+        gymRepositoryService.updateAddressWithoutTransaction(entity.getId(), modifiedAddress)
 
         def result = gymRepository.findAll()
 
