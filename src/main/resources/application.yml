@@ -36,7 +36,7 @@ spring:
     host: localhost
     port: 6379
 
-gym:
+parking-lot:
   finder:
     base:
       url: http://localhost:8080/dir/
@@ -46,3 +46,20 @@ spring:
   config:
     activate:
       on-profile: prod
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://parking-lot-database:3306/parking-lot
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  redis:
+    host: parking-lot-redis
+    port: 6379
+  jpa:
+    hibernate:
+      ddl-auto: validate # prod 배포시 validate
+    show-sql: true
+
+  parking-lot:
+    finder:
+      base:
+        url: http://localhost:8080/dir/

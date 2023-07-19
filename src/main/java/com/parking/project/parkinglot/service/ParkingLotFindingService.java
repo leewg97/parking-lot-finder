@@ -29,7 +29,7 @@ public class ParkingLotFindingService {
 
     private static final String ROAD_VIEW_BASE_URL = "https://map.kakao.com/link/roadview/";
 
-    @Value("${gym.finder.base.url}")
+    @Value("${parking-lot.finder.base.url}")
     private String baseUrl;
 
     public List<OutputDto> searchParkingLotList(String address) {

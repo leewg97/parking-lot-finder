@@ -1,5 +1,13 @@
 version: "3.8"
 services:
+  parking-lot-redis:
+    container_name: parking-lot-redis
+    build:
+      dockerfile: Dockerfile
+      context: ./redis
+    image: dldnjsrms/parking-lot-redis
+    ports:
+      - "6379:6379"
   parking-lot-database:
     container_name: parking-lot-database
     build:
@@ -14,11 +22,18 @@ services:
       - ./database/init:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
-  parking-lot-redis:
-    container_name: parking-lot-redis
-    build:
-      dockerfile: Dockerfile
-      context: ./redis
-    image: dldnjsrms/parking-lot-redis
+  parking-lot-app:
+    container_name: parking-lot-app
+    build: .
+    depends_on:
+      - parking-lot-database
+      - parking-lot-redis
+    image: dldnjsrms/parking-lot-app
+    environment:
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - KAKAO_REST_API_KEY=${KAKAO_REST_API_KEY}
     ports:
-      - "6379:6379"
+      - "80:8080"
+    restart: always
