@@ -31,9 +31,9 @@
     client ->> server: 피드 목록 요청
     alt 성공한 경우
     server ->> kakao api : 주소 정보를 위도, 경도로 변환 요청
-    kakao api -->> server : 주소를 위도, 경도로 변환 후 반환z
+    kakao api -->> server : 주소를 위도, 경도로 변환 후 반환
     server ->> redis : 주차장 현황 데이터 Redis 조회
-    else Failover
+    else Failover
     server ->> database : Redis 장애인 경우 database 조회
     else
     server ->> server : 가장 가까운 주차장 10곳 추출
