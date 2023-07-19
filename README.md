@@ -88,5 +88,6 @@
 
 ## Result 
 
-![Parking Lot Finder](https://github.com/leewg97/parking-lot-finder/assets/77063888/ab3c6501-90b9-4e59-bb71-28195105f041)
+![Parking Lot Finder](https://github.com/leewg97/parking-lot-finder/assets/77063888/d807e0b0-25eb-4443-a8da-9311ec2bde14)
+
 
