@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  parking-lot-database:
+    container_name: parking-lot-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: dldnjsrms/parking-lot-database
+    environment:
+      - MARIADB_DATABASE=parking-lot
+      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+      - ./database/init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+  parking-lot-redis:
+    container_name: parking-lot-redis
+    build:
+      dockerfile: Dockerfile
+      context: ./redis
+    image: dldnjsrms/parking-lot-redis
+    ports:
+      - "6379:6379"
