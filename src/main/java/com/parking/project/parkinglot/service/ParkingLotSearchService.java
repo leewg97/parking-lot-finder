@@ -1,5 +1,6 @@
 package com.parking.project.parkinglot.service;
 
+import com.parking.project.parkinglot.cache.ParkingLotRedisTemplate;
 import com.parking.project.parkinglot.dto.ParkingLotDto;
 import com.parking.project.parkinglot.entity.ParkingLot;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +16,12 @@ import java.util.stream.Collectors;
 public class ParkingLotSearchService {
 
     private final ParkingLotRepositoryService parkingLotRepositoryService;
+    private final ParkingLotRedisTemplate parkingLotRedisTemplate;
 
     public List<ParkingLotDto> searchParkingLotDtoList() {
-        // TODO: redis
+        // redis
+        List<ParkingLotDto> parkingLotDtoList = parkingLotRedisTemplate.findAll();
+        if (!parkingLotDtoList.isEmpty()) return parkingLotDtoList;
 
         // db
         return parkingLotRepositoryService.findAll()
