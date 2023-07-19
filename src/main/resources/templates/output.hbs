@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Gym Finder System</title>
+    <title>Parking Lot Find System</title>
     <!--부트스트랩 css 추가-->
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 
 </head>
 <body>
 <div>
-    <h2 class="h2-title">Gym Finder Results</h2>
+    <h2 class="h2-title">Parking Lot Finder Results</h2>
 </div>
 
 <table class="table table-hover">
@@ -22,8 +22,8 @@
     </tr>
     {{#each outputFormList}}
         <tr>
-            <td>{{gymName}}</td>
-            <td>{{gymAddress}}</td>
+            <td>{{parkingLotName}}</td>
+            <td>{{parkingLotAddress}}</td>
             <td>{{distance}}</td>
             <td><a href="{{directionUrl}}">{{directionUrl}}</a></td>
             <td><a href="{{roadViewUrl}}">{{roadViewUrl}}</a></td>

@@ -5,7 +5,7 @@ plugins {
     id 'groovy'
 }
 
-group = 'com.gymfinder.be'
+group = 'com.parkinglot.be'
 version = '0.0.1-SNAPSHOT'
 
 java {
