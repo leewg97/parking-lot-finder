@@ -1,6 +1,6 @@
-package com.gymfinder.be.gym.entity;
+package com.parking.project.parkinglot.entity;
 
-import com.gymfinder.be.gym.BaseEntity;
+import com.parking.project.parkinglot.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,23 +11,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name = "gym")
+@Entity(name = "parking_lot")
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Gym extends BaseEntity {
+public class ParkingLot extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String gymName;
-    private String gymAddress;
+    private String parkingLotName;
+    private String parkingLotAddress;
     private double latitude;
     private double longitude;
 
-    public void changeGymAddress(String address) {
-        this.gymAddress = address;
+    public void changeParkingLotAddress(String address) {
+        this.parkingLotAddress = address;
     }
 }

@@ -1,4 +1,4 @@
-package com.gymfinder.be.gym.dto;
+package com.parking.project.parkinglot.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GymDto {
+public class ParkingLotDto {
     private Long id;
-    private String gymName;
-    private String gymAddress;
+    private String parkingLotName;
+    private String parkingLotAddress;
     private double latitude;
     private double longitude;
 }

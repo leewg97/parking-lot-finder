@@ -1,6 +1,6 @@
-package com.gymfinder.be.direction.entity;
+package com.parking.project.direction.entity;
 
-import com.gymfinder.be.gym.BaseEntity;
+import com.parking.project.parkinglot.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,12 +26,12 @@ public class Direction extends BaseEntity {
     private double inputLatitude;
     private double inputLongitude;
 
-    // 헬스장
-    private String targetGymName;
+    // 주차장
+    private String targetParkingLotName;
     private String targetAddress;
     private double targetLatitude;
     private double targetLongitude;
 
-    // 사용자 주소와 헬스장 사이의 거리
+    // 사용자 주소와 주차장 사이의 거리
     private double distance;
 }

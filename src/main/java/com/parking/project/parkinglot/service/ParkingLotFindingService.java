@@ -1,12 +1,12 @@
-package com.gymfinder.be.gym.service;
+package com.parking.project.parkinglot.service;
 
-import com.gymfinder.be.api.dto.DocumentDto;
-import com.gymfinder.be.api.dto.KakaoApiResponseDto;
-import com.gymfinder.be.api.service.KakaoAddressSearchService;
-import com.gymfinder.be.direction.dto.OutputDto;
-import com.gymfinder.be.direction.entity.Direction;
-import com.gymfinder.be.direction.service.Base62Service;
-import com.gymfinder.be.direction.service.DirectionService;
+import com.parking.project.api.service.KakaoAddressSearchService;
+import com.parking.project.api.dto.DocumentDto;
+import com.parking.project.api.dto.KakaoApiResponseDto;
+import com.parking.project.direction.dto.OutputDto;
+import com.parking.project.direction.entity.Direction;
+import com.parking.project.direction.service.Base62Service;
+import com.parking.project.direction.service.DirectionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class GymFindingService {
+public class ParkingLotFindingService {
 
     private final Base62Service base62Service;
     private final DirectionService directionService;
@@ -32,11 +32,11 @@ public class GymFindingService {
     @Value("${gym.finder.base.url}")
     private String baseUrl;
 
-    public List<OutputDto> searchGymList(String address) {
+    public List<OutputDto> searchParkingLotList(String address) {
         KakaoApiResponseDto kakaoApiResponseDto = kakaoAddressSearchService.requestAddressSearch(address);
 
         if (Objects.isNull(kakaoApiResponseDto) || CollectionUtils.isEmpty(kakaoApiResponseDto.getDocumentList())) {
-            log.error("[GymFindingService searchGymList fail] Input address : {}", address);
+            log.error("[ParkingLotFindingService searchParkingLotList fail] Input address : {}", address);
             return Collections.emptyList();
         }
 
@@ -52,8 +52,8 @@ public class GymFindingService {
 
     private OutputDto convertToOutputDto(Direction direction) {
         return OutputDto.builder()
-                .gymName(direction.getTargetGymName())
-                .gymAddress(direction.getTargetAddress())
+                .parkingLotName(direction.getTargetParkingLotName())
+                .parkingLotAddress(direction.getTargetAddress())
                 .directionUrl(baseUrl + base62Service.encodeDirectionId(direction.getId()))
                 .roadViewUrl(ROAD_VIEW_BASE_URL + direction.getTargetLatitude() + "," + direction.getTargetLongitude())
                 .distance(String.format("%.2f km", direction.getDistance()))
