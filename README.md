@@ -1,15 +1,13 @@
 # Parking Lot Finder
 
-[공공 데이터(전국 공영 주차장 정보)](https://www.data.go.kr/data/15050093/fileData.do)와 [카카오 주소 검색 API](https://developers.kakao.com/docs/latest/ko/local/dev-guide)를 활용하여 요청한 위치 기준 가장 가까운 주차장 10곳을 검색해주며, 검색된 주차장의 길 안내는 [카카오 지도 및 로드뷰 바로가기 URL](https://apis.map.kakao.com/web/guide/#routeurl)로 제공 된다.   
+[공공 데이터(전국 공영 주차장 정보)](https://www.data.go.kr/data/15050093/fileData.do)와 [카카오 주소 검색 API](https://developers.kakao.com/docs/latest/ko/local/dev-guide)를 활용하여 요청한 위치 기준 20Km내에서 가장 가까운 주차장 10곳을 검색해주며, 검색된 주차장의 길 안내는 [카카오 지도 및 로드뷰 바로가기 URL](https://apis.map.kakao.com/web/guide/#routeurl)로 제공 된다.   
 
 ## 요구사항 분석 
 
 - 주차장 검색 서비스 요구사항
   - 해당 서비스로 주소 정보를 입력하여 요청하면 위치 기준에서 가까운 주차장 10곳을 추출한다.
-  - 주소는 도로명 주소 또는 지번을 입력하여 요청 받는다.
-    - 정확한 주소를 입력 받기 위해 [Kakao 우편번호 서비스](https://postcode.map.daum.net/guide) 사용한다. 
+  - 주소는 [Kakao 우편번호 서비스](https://postcode.map.daum.net/guide) 사용한다. 
   - 주소는 정확한 상세 주소(동, 호수)를 제외한 주소 정보를 이용하여 추천 한다.   
-    - ex) 서울 송파구 올림픽로 212
   - 입력 받은 주소를 위도, 경도로 변환 하여 기존 주차장 데이터와 비교 및 가까운 주차장을 찾는다.   
     - 지구는 평면이 아니기 때문에, 구면에서 두 점 사이의 최단 거리 구하는 공식이 필요하다.
     - 두 위 경도 좌표 사이의 거리를 [haversine formula](https://en.wikipedia.org/wiki/Haversine_formula)로 계산한다.
